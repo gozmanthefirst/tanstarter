@@ -1,4 +1,15 @@
-import config from "eslint-config-standard-react";
-import { defineConfig } from "eslint/config";
+// @ts-check
 
-export default defineConfig([{ files: ["**/*.{js,mjs,cjs}"] }, config]);
+import { FlatCompat } from "@eslint/eslintrc";
+
+const compat = new FlatCompat({
+  baseDirectory: import.meta.dirname,
+});
+
+const eslintConfig = [
+  ...compat.config({
+    extends: ["eslint-config-standard-react", "prettier"],
+  }),
+];
+
+export default eslintConfig;
