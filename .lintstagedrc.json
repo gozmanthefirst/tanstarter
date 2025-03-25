@@ -1,0 +1,6 @@
+{
+  "**/*.{ts,tsx,js,jsx,html,css,json,md}": [
+    "pnpm lint",
+    "prettier --write --ignore-unknown"
+  ]
+}
