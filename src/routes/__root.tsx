@@ -1,4 +1,3 @@
-import type { ReactNode } from "react";
 import {
   createRootRoute,
   HeadContent,
@@ -6,44 +5,28 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 
-import appCss from "@/styles/app.css?url";
-
 export const Route = createRootRoute({
   head: () => ({
     meta: [
-      {
-        charSet: "utf-8",
-      },
+      { charSet: "utf-8" },
       {
         name: "viewport",
         content: "width=device-width, initial-scale=1",
       },
-      {
-        title: "Tanstarter",
-      },
-    ],
-    links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { title: "TanStack Start Starter" },
     ],
   }),
-  component: () => (
-    <RootDocument>
-      <Outlet />
-    </RootDocument>
-  ),
+  component: RootLayout,
 });
 
-function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
+function RootLayout() {
   return (
     <html lang="en">
       <head>
         <HeadContent />
       </head>
-      <body className="bg-background text-foreground">
-        {children}
+      <body>
+        <Outlet />
         <Scripts />
       </body>
     </html>
