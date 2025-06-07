@@ -33,10 +33,10 @@ COPY --from=builder --chown=tanstack:nodejs /app/.output ./
 # Set environment variables
 ENV NODE_ENV=production \
     HOSTNAME="0.0.0.0" \
-    PORT=3001
+    PORT=3000
 
 USER tanstack
 
-EXPOSE 3001
+EXPOSE 3000
 
 CMD ["node", "server/index.mjs"]
